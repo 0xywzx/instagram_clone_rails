@@ -1,0 +1,32 @@
+<html>
+  <body>
+    <div class="container">
+      <div class="row_I">
+        <div class="col-sm-12 col-md-12">
+          <div>
+            <h1><%= @user.name %>のページ</h1>
+            <p>メールアドレス: <%= @user.email %></p>
+            <% if @user.image.present? %>
+            <p>
+              <strong>Image:</strong>
+              <%= image_tag(@user.image.url, :size => "150x150") %>
+            </p>
+            <% end %>
+            <p>お気に入り一覧</p>
+          </div>
+        </div>
+      </div>
+      <div class="row_J">
+        <% @favorites_mains.each do |favorite_main| %>
+        <div class="col-sm-9 col-md-9">
+          <div class="favoritelist_right">
+            <p><%= favorite_main.comment %></p>
+            <p><%= favorite.main.user.name %></p>
+            <%= image_tag(favorite_main.image.url, :size => "150x150") %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>

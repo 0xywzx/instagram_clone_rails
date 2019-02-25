@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <div class ="container-fluid">
+      <div class ="row_E">
+        <div class ="col-sm-12 col-md-offset-4 col-md-8">
+        </div>
+      </div>
+      <div class ="row_F">
+        <div class="col-sm-6 col-md-offset-4 col-md-2">
+          <h1><%= link_to "Sign up", new_user_path %></h1>
+        </div>
+        <div class="col-sm-6 col-md-2">
+          <h1><%= link_to "Login", new_session_path %></h1>
+        </div>
+      </div>
+      <div class ="row_G">
+        <div class="col-sm-12 col-md-offset-4 col-md-4">
+          <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+            <p>
+              <%= f.label :email %><br>
+              <%= f.email_field :email %>
+            </p>
+            <p>
+              <%= f.label :password %><br>
+              <%= f.password_field :password %>
+            </p>
+            <%= f.submit "Log in" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

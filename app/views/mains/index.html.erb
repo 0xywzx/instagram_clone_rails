@@ -1,0 +1,23 @@
+<div class="container_fluid">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <p><%= notice %></p>
+      <% @mains.each do |main| %>
+        <div class="main_scroll">
+          <p>
+            <%= main.comment %>
+          </p>
+          <p>
+            <%= image_tag(main.image.url, :size => "300x300") %>
+          </p>
+          <tr>
+            <td><%= link_to '詳細', main_path(main.id) %></td>
+            <td><%= link_to "編集", edit_main_path(main.id) %></td>
+            <td><%= link_to '削除', main_path(main.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+          </tr>
+        </div>
+      <% end %>
+      <h4 class="go-top">↑Topへ戻る</h4>
+    </div>
+  </div>
+</div>

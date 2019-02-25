@@ -1,0 +1,59 @@
+<html>
+  <body>
+    <div class ="container-fluid">
+      <div class ="row_E">
+        <div class ="col-sm-12 col-md-offset-2 col-md-8">
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h2>
+              <ul>
+              <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class ="row_F">
+        <div class="col-sm-6 col-md-offset-4 col-md-2">
+          <h1><%= link_to "Sign up", new_user_path %></h1>
+        </div>
+        <div class="col-sm-6 col-md-2">
+          <h1><%= link_to "Login", new_session_path %></h1>
+        </div>
+      </div>
+      <div class ="row_G">
+        <div class="col-sm-12 col-md-offset-4 col-md-4">
+          <%= form_with(model: @user, local: true) do |f| %>
+            <p>
+              <%= f.label :name %><br>
+              <%= f.text_field :name %>
+            </p>
+            <p>
+              <%= f.label :email %><br>
+              <%= f.email_field :email %>
+            </p>
+            <p>
+              <%= f.label :password %><br>
+              <%= f.password_field :password %>
+            </p>
+            <p>
+              <%= f.label :password_confirmation %><br>
+              <%= f.password_field :password_confirmation %>
+            </p>
+            <p>
+              <%= f.label :image %>
+              <!-- 確認画面から新規作成画面に戻った時に、 -->
+              <!-- アップロードした画像を表示させるための記述 -->
+              <%= image_tag(@user.image.url) if @user.image.url %>
+              <%= f.file_field :image %>
+              <%= f.hidden_field :image_cache %>
+              <%= f.submit "Create my account" %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
