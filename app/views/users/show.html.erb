@@ -6,6 +6,7 @@
           <div>
             <h1><%= @user.name %>のページ</h1>
             <p>メールアドレス: <%= @user.email %></p>
+            <p><%= link_to "編集する", edit_user_path %></p>
             <% if @user.image.present? %>
             <p>
               <strong>Image:</strong>

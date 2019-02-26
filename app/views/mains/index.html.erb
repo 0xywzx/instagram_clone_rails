@@ -4,11 +4,13 @@
       <p><%= notice %></p>
       <% @mains.each do |main| %>
         <div class="main_scroll">
-          <p>
-            <%= main.comment %>
-          </p>
+          <%= image_tag(main.user.image.url, :size => "50x50") %>
+          <%= main.user.name %>
           <p>
             <%= image_tag(main.image.url, :size => "300x300") %>
+          </p>
+          <p>
+            <%= main.comment %>
           </p>
           <tr>
             <td><%= link_to '詳細', main_path(main.id) %></td>
