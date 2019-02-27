@@ -4,18 +4,22 @@
       <p><%= notice %></p>
       <% @mains.each do |main| %>
         <div class="main_scroll">
-          <%= image_tag(main.user.image.url, :size => "50x50") %>
-          <%= main.user.name %>
+          <div class="main_userinfo">
+            <%= image_tag(main.user.image.url, :size => "50x50") %>
+            <%= main.user.name %>
+          </div>
           <p>
             <%= image_tag(main.image.url, :size => "300x300") %>
           </p>
-          <p>
+          <p class="main_comment">
             <%= main.comment %>
           </p>
           <tr>
             <td><%= link_to '詳細', main_path(main.id) %></td>
-            <td><%= link_to "編集", edit_main_path(main.id) %></td>
-            <td><%= link_to '削除', main_path(main.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+            <% if current_user.id == main.user_id %>
+                <td><%= link_to "編集", edit_main_path(main.id) %></td>
+                <td><%= link_to '削除', main_path(main.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+            <% end %>
           </tr>
         </div>
       <% end %>

@@ -1,3 +1,17 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.userpage_icon{
+  height: 120px;
+}
+
+.userpage_icon img {
+  margin-top: 35px;
+  margin-bottom: 35px;
+  margin-left: 70px;
+}
+
+.userpage_title{
+  text-align: left;
+  height: 120px;
+}

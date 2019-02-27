@@ -1,28 +1,35 @@
-<%= form_with(model: @main, local: true, url: choose_new_or_edit) do |form| %>
-  <% if @main.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @main.errors.count %>件のエラーがあります。</h2>
-      <ul>
+<div class="container_fluid">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <%= form_with(model: @main, local: true, url: choose_new_or_edit) do |form| %>
+      <% if @main.errors.any? %>
 
-      <% @main.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div id="error_explanation">
+          <h2><%= @main.errors.count %>件のエラーがあります。</h2>
+          <ul>
+
+            <% @main.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="blog_title">
-    <%= form.label :コメント %>
-    <%= form.text_field :comment %>
-  </div>
-  <div class="field">
-    <%= form.label :image %>
-    <!-- 確認画面から新規作成画面に戻った時に、 -->
-    <!-- アップロードした画像を表示させるための記述 -->
-    <%= image_tag(@main.image.url) if @main.image.url %>
-    <%= form.file_field :image %>
-    <%= form.hidden_field :image_cache %>
-  </div>
-  <%= form.submit "投稿" %>
-<% end %>
+      <div class="blog_title">
+        <%= form.label :コメント %>
+        <%= form.text_field :comment %>
+      </div>
+      <div class="field">
+        <%= form.label :image %>
+        <!-- 確認画面から新規作成画面に戻った時に、 -->
+        <!-- アップロードした画像を表示させるための記述 -->
+        <%= image_tag(@main.image.url) if @main.image.url %>
+        <%= form.file_field :image %>
+        <%= form.hidden_field :image_cache %>
 
-<%= link_to "一覧画面にもどる", mains_path %>
+        <%= form.submit "投稿" %>
+      <% end %>
+
+      <%= link_to "一覧画面にもどる", mains_path %>
+    </div>
+  </div>
+</div>

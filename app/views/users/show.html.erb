@@ -2,27 +2,29 @@
   <body>
     <div class="container">
       <div class="row_I">
-        <div class="col-sm-12 col-md-12">
-          <div>
-            <h1><%= @user.name %>のページ</h1>
-            <p>メールアドレス: <%= @user.email %></p>
-            <p><%= link_to "編集する", edit_user_path %></p>
-            <% if @user.image.present? %>
-            <p>
-              <strong>Image:</strong>
-              <%= image_tag(@user.image.url, :size => "150x150") %>
-            </p>
-            <% end %>
-            <p>お気に入り一覧</p>
+        <div class="col-md-offset-2 col-md-10">
+          <div class="row_K">
+            <div class="col-md-3">
+              <div class="userpage_icon">
+                <%= image_tag(@user.image.url, :size => "50x50") %>
+              </div>
+            </div>
+            <div class="col-md-9">
+              <div class="userpage_title">
+              <h1><%= @user.name %>のページ</h1>
+              <p>メールアドレス: <%= @user.email %></p>
+              <p><%= link_to "編集する", edit_user_path %></p>
+            </div>
           </div>
         </div>
       </div>
       <div class="row_J">
         <% @favorites_mains.each do |favorite_main| %>
-        <div class="col-sm-9 col-md-9">
+        <div class="col-sm-12 col-md-12">
+          <p>お気に入り一覧</p>
           <div class="favoritelist_right">
             <p><%= favorite_main.comment %></p>
-            <p><%= favorite.main.user.name %></p>
+            <p><%= favorite_main.user.name %></p>
             <%= image_tag(favorite_main.image.url, :size => "150x150") %>
           </div>
         </div>

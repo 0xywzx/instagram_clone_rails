@@ -18,4 +18,10 @@ Rails.application.routes.draw do
     collection do
     end
   end
+
+  resources :favorites do
+    collection do
+    end
+  end
+
 end
