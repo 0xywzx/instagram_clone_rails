@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'mains#index'
   get 'mains/index'
   get 'sessions/new'
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 
   resources :mains do
     collection do

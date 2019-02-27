@@ -34,7 +34,9 @@ class MainsController < ApplicationController
   def create
     @main = Main.new(main_params)
     @main.user_id = current_user.id
+    @email = current_user.email
       if @main.save
+        ContactMailer.contact_mail(@main, @email).deliver  
         redirect_to mains_path, notice: "投稿を作成しました！"
       else
         render 'new'
