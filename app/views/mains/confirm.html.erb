@@ -6,7 +6,7 @@
         <%= form_with(model: @main, url: mains_path, local: true) do |form| %>
         <%= form.hidden_field :comment %>
         <p>コメント:<%= @main.comment %></p>
-        <%= image_tag(@main.image.url) if @main.image.url %>
+        <%= image_tag(@main.image.url, :size => "250x250") if @main.image.url %>
         <%= form.hidden_field :image_cache %>
       </div>
       <div class="post_button">

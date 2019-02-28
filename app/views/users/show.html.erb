@@ -19,9 +19,9 @@
         </div>
       </div>
       <div class="row_J">
+        <p>お気に入り一覧</p>
         <% @favorites_mains.each do |favorite_main| %>
         <div class="col-sm-12 col-md-12">
-          <p>お気に入り一覧</p>
           <div class="favoritelist_right">
             <p><%= favorite_main.comment %></p>
             <p><%= favorite_main.user.name %></p>

@@ -2,8 +2,7 @@
 <p>コメント: <%= @main.comment %></p>
 <% if @main.image.present? %>
 <p>
-  <strong>Image:</strong>
-  <%= image_tag(@main.image.url, :size => "200x200") %>
+  <%= image_tag(@main.image.url, :size => "250x250") %>
 </p>
 <% end %>
 <% unless @main.user_id == current_user.id %>
