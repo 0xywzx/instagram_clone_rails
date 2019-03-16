@@ -16,12 +16,14 @@
           </p>
           <tr>
             <td><%= link_to '詳細', main_path(main.id) %></td>
-            <% if current_user.id == main.user_id %>
-                <td><%= link_to "編集", edit_main_path(main.id) %></td>
-                <td><%= link_to '削除', main_path(main.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-            <% else %>
-            
-            <% end %>
+              <% if logged_in? %>
+                <% if current_user.id == main.user_id %>
+                  <td><%= link_to "編集", edit_main_path(main.id) %></td>
+                  <td><%= link_to '削除', main_path(main.id), method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+                  <% else %>
+                <% end %>
+              <% else %>
+            <% end %>    
           </tr>
         </div>
       <% end %>
